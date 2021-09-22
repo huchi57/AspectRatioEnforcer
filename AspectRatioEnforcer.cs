@@ -12,13 +12,20 @@ public class AspectRatioEnforcer : MonoBehaviour
     private float targetScreenWidthOrHeight;
     private float boxWidthOrHeight;
     private float inset;
-    private Texture2D texture;
+    private Texture2D boxTexture;
     private GUIStyle guiStyle;
     private new Camera camera;
 
     private Rect leftOrTopBox;
     private Rect rightOrBottomBox;
     private Rect cameraBox;
+
+    public void SetBoxColor(Color color)
+    {
+        boxTexture = new Texture2D(1, 1);
+        boxTexture.SetPixel(0, 0, color);
+        boxTexture.Apply();
+    }
 
     private void OnGUI()
     {
@@ -73,17 +80,16 @@ public class AspectRatioEnforcer : MonoBehaviour
 
     private void CheckComponentsExist()
     {
-        if (texture == null)
+        if (boxTexture == null)
         {
-            texture = new Texture2D(1, 1);
-            texture.SetPixel(0, 0, Color.black);
-            texture.Apply();
+            // Default color: black
+            SetBoxColor(Color.black);
         }
 
         if (guiStyle == null)
         {
             guiStyle = new GUIStyle();
-            guiStyle.normal.background = texture;
+            guiStyle.normal.background = boxTexture;
         }
 
         if (camera == null)
