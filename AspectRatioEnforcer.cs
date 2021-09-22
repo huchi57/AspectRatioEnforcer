@@ -11,7 +11,7 @@ public class AspectRatioEnforcer : MonoBehaviour
 
     private float targetScreenWidthOrHeight;
     private float boxWidthOrHeight;
-    private float inset;
+    private float camerBoxInset;
     private Texture2D boxTexture;
     private GUIStyle guiStyle;
     private new Camera camera;
@@ -45,8 +45,8 @@ public class AspectRatioEnforcer : MonoBehaviour
 
             if (camera != null)
             {
-                inset = 1f - targetAspectRatio / CurrentAspectRatio;
-                SetRect(ref cameraBox, inset / 2, 0, 1 - inset, 1);
+                camerBoxInset = 1f - targetAspectRatio / CurrentAspectRatio;
+                SetRect(ref cameraBox, camerBoxInset / 2, 0, 1 - camerBoxInset, 1);
                 camera.rect = cameraBox;
             }
         }
@@ -65,8 +65,8 @@ public class AspectRatioEnforcer : MonoBehaviour
             
             if (camera != null)
             {
-                inset = 1f - CurrentAspectRatio / targetAspectRatio;
-                SetRect(ref cameraBox, 0, inset / 2, 1, 1 - inset);
+                camerBoxInset = 1f - CurrentAspectRatio / targetAspectRatio;
+                SetRect(ref cameraBox, 0, camerBoxInset / 2, 1, 1 - camerBoxInset);
                 camera.rect = cameraBox;
             }
         }
