@@ -16,7 +16,62 @@ public class AspectRatioEnforcer : MonoBehaviour
     private GUIStyle guiStyle;
     private new Camera camera;
 
+    private Rect leftOrTopBox;
+    private Rect rightOrBottomBox;
+    private Rect cameraBox;
+
     private void OnGUI()
+    {
+        CheckComponentsExist();
+
+        // Pillarbox
+        if (CurrentAspectRatio > targetAspectRatio)
+        {
+            targetScreenWidthOrHeight = (float)Screen.height * targetAspectRatio;
+            boxWidthOrHeight = (Screen.width - targetScreenWidthOrHeight) / 2;
+
+            SetRect(ref leftOrTopBox, 0, 0, boxWidthOrHeight, Screen.height);
+            SetRect(ref rightOrBottomBox, boxWidthOrHeight + targetScreenWidthOrHeight, 0, boxWidthOrHeight, Screen.height);
+
+            GUI.Box(leftOrTopBox, GUIContent.none, guiStyle);
+            GUI.Box(rightOrBottomBox, GUIContent.none, guiStyle);
+
+            if (camera != null)
+            {
+                inset = 1f - targetAspectRatio / CurrentAspectRatio;
+                SetRect(ref cameraBox, inset / 2, 0, 1 - inset, 1);
+                camera.rect = cameraBox;
+            }
+        }
+
+        // Letterbox
+        else if (CurrentAspectRatio < targetAspectRatio)
+        {
+            targetScreenWidthOrHeight = (float)Screen.width / targetAspectRatio;
+            boxWidthOrHeight = (Screen.height - targetScreenWidthOrHeight) / 2;
+
+            SetRect(ref leftOrTopBox, 0, 0, Screen.width, boxWidthOrHeight);
+            SetRect(ref rightOrBottomBox, 0, boxWidthOrHeight + targetScreenWidthOrHeight, Screen.width, boxWidthOrHeight);
+
+            GUI.Box(leftOrTopBox, GUIContent.none, guiStyle);
+            GUI.Box(rightOrBottomBox, GUIContent.none, guiStyle);
+            
+            if (camera != null)
+            {
+                inset = 1f - CurrentAspectRatio / targetAspectRatio;
+                SetRect(ref cameraBox, 0, inset / 2, 1, 1 - inset);
+                camera.rect = cameraBox;
+            }
+        }
+
+        // No box
+        else
+        {
+            camera.rect = new Rect(0, 0, 1, 1);
+        }
+    }
+
+    private void CheckComponentsExist()
     {
         if (texture == null)
         {
@@ -36,39 +91,28 @@ public class AspectRatioEnforcer : MonoBehaviour
             camera = Camera.main;
         }
 
-        // Pillarbox
-        if (CurrentAspectRatio > targetAspectRatio)
+        if (leftOrTopBox == null)
         {
-            targetScreenWidthOrHeight = (float)Screen.height * targetAspectRatio;
-            boxWidthOrHeight = (Screen.width - targetScreenWidthOrHeight) / 2;
-            GUI.Box(new Rect(0, 0, boxWidthOrHeight, Screen.height), GUIContent.none, guiStyle);
-            GUI.Box(new Rect(boxWidthOrHeight + targetScreenWidthOrHeight, 0, boxWidthOrHeight, Screen.height), GUIContent.none, guiStyle);
-            if (camera != null)
-            {
-                inset = 1f - targetAspectRatio / CurrentAspectRatio;
-                camera.rect = new Rect(inset / 2, 0, 1 - inset, 1);
-            }
+            leftOrTopBox = new Rect();
         }
 
-        // Letterbox
-        else if (CurrentAspectRatio < targetAspectRatio)
+        if (rightOrBottomBox == null)
         {
-            targetScreenWidthOrHeight = (float)Screen.width / targetAspectRatio;
-            boxWidthOrHeight = (Screen.height - targetScreenWidthOrHeight) / 2;
-            GUI.Box(new Rect(0, 0, Screen.width, boxWidthOrHeight), GUIContent.none, guiStyle);
-            GUI.Box(new Rect(0, boxWidthOrHeight + targetScreenWidthOrHeight, Screen.width, boxWidthOrHeight), GUIContent.none, guiStyle);
-            if (camera != null)
-            {
-                inset = 1f - CurrentAspectRatio / targetAspectRatio;
-                camera.rect = new Rect(0, inset / 2, 1, 1 - inset);
-            }
+            rightOrBottomBox = new Rect();
         }
 
-        // No box
-        else
+        if (cameraBox == null)
         {
-            camera.rect = new Rect(0, 0, 1, 1);
+            cameraBox = new Rect();
         }
+    }
+
+    private void SetRect(ref Rect rect, float x, float y, float width, float height)
+    {
+        rect.x = x;
+        rect.y = y;
+        rect.width = width;
+        rect.height = height;
     }
 
     private void OnValidate()
