@@ -144,6 +144,14 @@ public class AspectRatioEnforcer : MonoBehaviour
         rect.height = height;
     }
 
+    private void OnDisable()
+    {
+        if (camera != null)
+        {
+            camera.rect = new Rect(0, 0, 1, 1);
+        }
+    }
+
     private void OnValidate()
     {
         if (targetAspectRatio < 0)
