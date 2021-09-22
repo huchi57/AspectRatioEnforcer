@@ -7,12 +7,21 @@ public class AspectRatioEnforcer : MonoBehaviour
 {
     [SerializeField]
     private float targetAspectRatio = 1.77778f;
+
+    [SerializeField]
+    private Color maskColor = Color.black;
+
+    [SerializeField]
+    private Camera optionalCamera;
+
     private float CurrentAspectRatio { get { return (float)Screen.width / (float)Screen.height; } }
 
     private float targetScreenWidthOrHeight;
     private float boxWidthOrHeight;
     private float camerBoxInset;
-    private Texture2D boxTexture;
+
+    private Color currentMaskColor;
+    private Texture2D maskTexture;
     private GUIStyle guiStyle;
     private new Camera camera;
 
@@ -20,11 +29,20 @@ public class AspectRatioEnforcer : MonoBehaviour
     private Rect rightOrBottomBox;
     private Rect cameraBox;
 
-    public void SetBoxColor(Color color)
+    [ContextMenu("Set Mask Color")]
+    public void SetMaskColor(Color color)
     {
-        boxTexture = new Texture2D(1, 1);
-        boxTexture.SetPixel(0, 0, color);
-        boxTexture.Apply();
+        maskTexture = new Texture2D(1, 1);
+        maskTexture.SetPixel(0, 0, color);
+        maskTexture.Apply();
+        currentMaskColor = color;
+
+        // Apply texture to mask
+        if (guiStyle == null)
+        {
+            guiStyle = new GUIStyle();
+        }
+        guiStyle.normal.background = maskTexture;
     }
 
     private void OnGUI()
@@ -62,7 +80,7 @@ public class AspectRatioEnforcer : MonoBehaviour
 
             GUI.Box(leftOrTopBox, GUIContent.none, guiStyle);
             GUI.Box(rightOrBottomBox, GUIContent.none, guiStyle);
-            
+
             if (camera != null)
             {
                 camerBoxInset = 1f - CurrentAspectRatio / targetAspectRatio;
@@ -80,16 +98,15 @@ public class AspectRatioEnforcer : MonoBehaviour
 
     private void CheckComponentsExist()
     {
-        if (boxTexture == null)
+        if (maskTexture == null)
         {
             // Default color: black
-            SetBoxColor(Color.black);
+            SetMaskColor(maskColor);
         }
 
-        if (guiStyle == null)
+        if (optionalCamera)
         {
-            guiStyle = new GUIStyle();
-            guiStyle.normal.background = boxTexture;
+            camera = optionalCamera;
         }
 
         if (camera == null)
@@ -111,6 +128,12 @@ public class AspectRatioEnforcer : MonoBehaviour
         {
             cameraBox = new Rect();
         }
+
+        if (currentMaskColor != maskColor)
+        {
+            SetMaskColor(maskColor);
+            currentMaskColor = maskColor;
+        }
     }
 
     private void SetRect(ref Rect rect, float x, float y, float width, float height)
@@ -127,5 +150,6 @@ public class AspectRatioEnforcer : MonoBehaviour
         {
             targetAspectRatio = 0;
         }
+        SetMaskColor(maskColor);
     }
 }
