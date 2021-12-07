@@ -1,5 +1,5 @@
 # AspectRatioEnforcer
-Make sure the game view is in designated aspect ratio by adding pillarbox/letterbox, and resizing the camera rect.
+Make sure the game view is in designated aspect ratio by adding letterbox / pillarbox, and resizing the camera viewport.
 ## How to Use
 1. Add `AspectRatioEnforcer.cs` to a camera object.
 2. Select a preset from the `Aspect Ratio` dropdown in the inspector or use `Custom` to fill in a custom number.
