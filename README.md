@@ -1,5 +1,10 @@
 # AspectRatioEnforcer
 Make sure the game view is in designated aspect ratio by adding letterbox / pillarbox, and resizing the camera viewport.
+This currently works *only* in Play Mode.
+## Installation
+1. Download the full repository, and make sure the `Editor` folder is also included.
+2. Import the full folder into your Unity project.
+3. There is a test scene under the `Test` folder.
 ## How to Use
 1. Add `AspectRatioEnforcer.cs` to a camera object.
 2. Select a preset from the `Aspect Ratio` dropdown in the inspector or use `Custom` to fill in a custom number.
