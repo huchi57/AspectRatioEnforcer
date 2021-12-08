@@ -5,10 +5,10 @@ This works both in Play Mode and Edit Mode.
 <table>
   <tr>
     <td>
-      <img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% />
+      <img src = "Readme/Readme-Change-AspectRatio.gif" />
     </td>
     <td>
-      <img src = "Readme/Readme-Change-MaskColor.gif" width = 40% />
+      <img src = "Readme/Readme-Change-MaskColor.gif" />
     </td>
   </tr>
   <tr>
