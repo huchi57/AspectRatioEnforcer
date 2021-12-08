@@ -2,8 +2,8 @@
 Make sure the game view is in designated aspect ratio by adding letterbox / pillarbox, and resizing the camera viewport.
 This works both in Play Mode and Edit Mode.
 
-<img src = "Readme/Readme-Change-AspectRatio.gif" width = 50% />
-<img src = "Readme/Readme-Change-MaskColor.gif" width = 50% />
+<img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% />
+<img src = "Readme/Readme-Change-MaskColor.gif" width = 40% />
 
 ## Installation
 1. Download the full repository (including the `Editor` folder).
