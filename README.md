@@ -2,6 +2,19 @@
 Make sure the game view is in designated aspect ratio by adding letterbox / pillarbox, and resizing the camera viewport.
 This works both in Play Mode and Edit Mode.
 
+<table>
+  <tr>
+    <td>
+      <img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src = "Readme/Readme-Change-MaskColor.gif" width = 40% />
+    </td>
+  </tr>
+</table>
+
 | --- | --- |
 | <img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% /> | <img src = "Readme/Readme-Change-MaskColor.gif" width = 40% /> |
 | Supports changing aspect ratio from presets or custom values.    | Mask color is also changable.                                  |
