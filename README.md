@@ -7,17 +7,19 @@ This works both in Play Mode and Edit Mode.
     <td>
       <img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% />
     </td>
-  </tr>
-  <tr>
     <td>
       <img src = "Readme/Readme-Change-MaskColor.gif" width = 40% />
     </td>
   </tr>
-</table>
-
-| --- | --- |
-| <img src = "Readme/Readme-Change-AspectRatio.gif" width = 40% /> | <img src = "Readme/Readme-Change-MaskColor.gif" width = 40% /> |
-| Supports changing aspect ratio from presets or custom values.    | Mask color is also changable.                                  |
+  <tr>
+    <td>
+      Supports changing aspect ratio from presets or custom values.
+    </td>
+    <td>
+      Mask color is also changable.
+    </td>
+  </tr>
+</table>                           |
 
 ## Installation
 1. Download the full repository (including the `Editor` folder).
