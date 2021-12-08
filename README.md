@@ -19,7 +19,7 @@ This works both in Play Mode and Edit Mode.
       Mask color is also changable.
     </td>
   </tr>
-</table>                           |
+</table>
 
 ## Installation
 1. Download the full repository (including the `Editor` folder).
