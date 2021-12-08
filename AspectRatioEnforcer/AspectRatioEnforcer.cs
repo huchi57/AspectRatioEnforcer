@@ -97,7 +97,7 @@ public class AspectRatioEnforcer : MonoBehaviour
         {
             if (_aspectRatio > ScreenRatio)
             {
-                var viewportHeight = _aspectRatio == 0 ? Screen.height : Screen.width / _aspectRatio;
+                var viewportHeight = _aspectRatio <= 0 ? Screen.height : Screen.width / _aspectRatio;
                 var maskHeight = (Screen.height - viewportHeight) / 2;
                 Mask.SetLetterbox(viewportHeight, maskHeight, ViewportInset);
             }
