@@ -23,8 +23,7 @@ This works both in Play Mode and Edit Mode.
 
 ## Installation
 1. Download the full repository (including the `Editor` folder).
-2. Import the full folder into your Unity project.
-3. You can try out the test scene under the `Test` folder to see how it works.
+2. You can try out the test scene under the `Test` folder to see how it works.
 
 ## How to Use
 1. Add `AspectRatioEnforcer.cs` to a camera object.
