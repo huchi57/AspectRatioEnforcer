@@ -10,6 +10,7 @@ public class AspectRatioEnforcerEditor : Editor
     private const float _4to3 = 4f / 3f;
     private const float _5to4 = 5f / 4f;
     private SerializedProperty _aspectRatio = default;
+    
     private SerializedProperty AspectRatio
     {
         get
