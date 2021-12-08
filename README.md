@@ -15,8 +15,8 @@ This works both in Play Mode and Edit Mode.
   - `Color MaskColor`
   - `float AspectRatio`
 
-| Property          | Type  | Description |
-|-------------------|-------|-------------|
+| Property     | Type  | Description |
+|-------------|-------|------|
 | PreviewInEditMode | bool  | 1           |
 | MaskColor         | Color | 2           |
 | AspectRatio       | float | 3           |
