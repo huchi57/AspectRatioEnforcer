@@ -18,7 +18,7 @@ This works both in Play Mode and Edit Mode.
 
 | Property Name       | Type    | Description                                            |
 | :---                | :---    | :---                                                   |
-| `PreviewInEditMode` | `bool`  | Enable to apply masks also in Edit Mode.               |
+| `PreviewInEditMode` | `bool`  | Enable to preview mask effects in Edit Mode.           |
 | `MaskColor`         | `Color` | The color of letterbox / pillarbox.                    |
 | `AspectRatio`       | `float` | The designated aspect ratio. The minimum value is `0`. |
 
