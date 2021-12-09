@@ -9,9 +9,9 @@ public class AspectRatioEnforcerEditor : Editor
     private const float _21to9 = 21f / 9f;
     private const float _4to3 = 4f / 3f;
     private const float _5to4 = 5f / 4f;
-    
+
     private SerializedProperty _aspectRatio = default;
-    
+
     private SerializedProperty AspectRatio
     {
         get
@@ -28,7 +28,8 @@ public class AspectRatioEnforcerEditor : Editor
     {
         serializedObject.Update();
         base.OnInspectorGUI();
-        GUILayout.Label("Quick Set Aspect Ratio:");
+        GUILayout.Space(10);
+        GUILayout.Label("Quick Set from Presets:");
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("16:9"))
         {
@@ -50,7 +51,7 @@ public class AspectRatioEnforcerEditor : Editor
         {
             AspectRatio.floatValue = _5to4;
         }
-        if (GUILayout.Button("Square"))
+        if (GUILayout.Button("1:1"))
         {
             AspectRatio.floatValue = 1;
         }
