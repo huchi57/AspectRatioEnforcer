@@ -1,4 +1,4 @@
-# AspectRatioEnforcer
+# Unity Aspect Ratio Enforcer
 Make sure the game view is in designated aspect ratio by adding letterbox / pillarbox, and resizing the camera viewport.
 This works both in Play Mode and Edit Mode.
 
@@ -25,14 +25,14 @@ This works both in Play Mode and Edit Mode.
 1. Download the full repository (including the `Editor` folder).
 2. You can try out the test scene under the `Test` folder to see how it works.
 
-## How to Use
+## Usage
 1. Add `AspectRatioEnforcer.cs` to a camera object.
 2. By default, `Preview In Edit Mode` is enabled, so the script should also work in Edit Mode. Uncheck to use it only in Play Mode.
 3. Edit the designated `Aspect Ratio` value, or click on one of the preset buttons in the inspector.
 4. You may also change the `Mask Color`.
 5. Properties are exposed so they can be modified by other scripts as well. See the table below.
 
-## Properties
+## Public Properties
 
 | Property Name       | Type    | Description                                            |
 | :---                | :---    | :---                                                   |
