@@ -126,15 +126,15 @@ namespace UrbanFox
             {
                 if (_aspectRatio > ScreenRatio)
                 {
-                    var viewportHeight = _aspectRatio <= 0 ? Screen.height : Screen.width / _aspectRatio;
-                    var maskHeight = (Screen.height - viewportHeight) / 2;
+                    float viewportHeight = _aspectRatio <= 0 ? Screen.height : Screen.width / _aspectRatio;
+                    float maskHeight = (Screen.height - viewportHeight) / 2;
                     Mask.SetLetterbox(viewportHeight, maskHeight, ViewportInset);
                 }
 
                 else if (_aspectRatio < ScreenRatio)
                 {
-                    var viewportWidth = Screen.height * _aspectRatio;
-                    var maskWidth = (Screen.width - viewportWidth) / 2;
+                    float viewportWidth = Screen.height * _aspectRatio;
+                    float maskWidth = (Screen.width - viewportWidth) / 2;
                     Mask.SetPillarbox(viewportWidth, maskWidth, ViewportInset);
                 }
 
