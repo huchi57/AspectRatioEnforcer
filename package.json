@@ -1,0 +1,19 @@
+{
+    "name": "com.UrbanFox.AspectRatioEnforcer",
+    "version": "1.0.0",
+    "displayName": "Aspect Ratio Enforcer",
+    "description": "A tool that enforces the aspect ratio of the game by auto-resizing camera viewport and adding masks.",
+    "keywords": [
+        "Aspect",
+        "Aspect Ratio",
+        "Aspect-Ratio",
+        "Ratio",
+        "Viewport",
+        "Camera"
+    ],
+    "author": {
+        "name": "Chi Hu",
+        "email": "huchi.hello@gmail.com",
+        "url": "https://github.com/huchi57"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "name": "UrbanFox.AspecRatioEnforcer.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8cbf6ff8d89e003458598ccb35710044"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
