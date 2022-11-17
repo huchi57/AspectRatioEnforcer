@@ -1,5 +1,5 @@
 {
-    "name": "com.UrbanFox.AspectRatioEnforcer",
+    "name": "com.urbanfox.aspectratioenforcer",
     "version": "1.0.0",
     "displayName": "Aspect Ratio Enforcer",
     "description": "A tool that enforces the aspect ratio of the game by auto-resizing camera viewport and adding masks.",
